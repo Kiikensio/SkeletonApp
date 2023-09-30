@@ -1,0 +1,30 @@
+@import "~font-awesome/css/font-awesome.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+.app {
+    text-align: center;
+    font-size: 45px; /* Tamaño de letra deseado, por ejemplo, 24 píxeles */
+}
+
+.subtitulo {
+    text-align: center;
+    margin-top: 0;
+}
+
+.cwifi {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px; /* Relleno interno (ajústalo según tus necesidades) */
+}
+
+.otrotitulo{
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+    margin: 50px;
+}
+
+.a{
+    text-align: center; 
+}
