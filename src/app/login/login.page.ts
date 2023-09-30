@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+  constructor(private router: Router) {}
+
+  
 
   horaActual: string = '';
 
@@ -17,6 +22,10 @@ export class LoginPage implements OnInit {
   actualizarHora() {
     const ahora = new Date();
     this.horaActual = ahora.toLocaleTimeString();
+  }
+
+  redirigirAPagina() {
+    this.router.navigate(['home']);
   }
 
 }
