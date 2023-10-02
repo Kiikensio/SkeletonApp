@@ -18,14 +18,24 @@
   <div class="otrotitulo">Bienvenido!</div>
   <ion-list>
       <ion-item>
-        <ion-input label="Usuario" placeholder=""></ion-input>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input [(ngModel)]="inputValue" name="inputValue" #inputField="ngModel" required minlength="3" maxlength="8"></ion-input>
       </ion-item>
   </ion-list>
   <ion-list>
     <ion-item>
-      <ion-input label="Password" type="password" value="password"></ion-input>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password" name="password" (input)="maskPassword()" #inputField="ngModel" required minlength="4" maxlength="4"></ion-input>
     </ion-item>
   </ion-list>
-  <div class="ingresar"><ion-button expand="full" (click)="redirigirAPagina()">Ingresar</ion-button></div>
+  <div><br></div>
+  <div class="ingresar"><ion-button expand="full" (click)="submitForm()" [disabled]="!inputField.valid">Enviar</ion-button></div>
+  <div><br></div>
   <div class="a"><a href="Crea tu cuenta gratis">Crea tu cuenta gratis</a></div>
+  <div><br></div>
+  <div *ngIf="inputField.invalid && (inputField.dirty || inputField.touched)">
+    <p *ngIf="inputField.errors?.['required']">Este campo es obligatorio.</p>
+    <p *ngIf="inputField.errors?.minlength">El usuario debe tener al menos 3 caracteres.</p>
+    <p *ngIf="inputField.errors?.maxlength">El usuario no debe tener más de 8 caracteres.</p>
+  </div>
 </ion-content>
